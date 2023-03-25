@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.k8s
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=mysql+pymysql://root:pass123@db:3306/my_project
+
+
+  db:
+    image: "mysql:8.0"
+    environment:
+      MYSQL_DATABASE: "my_project"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "pass123"
+      MYSQL_ROOT_PASSWORD: "pass123"
+    volumes:
+      - "db_data:/var/lib/mysql"
+
+volumes:
+  db_data:

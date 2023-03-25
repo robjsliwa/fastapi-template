@@ -1,15 +1,17 @@
 # from fastapi import FastAPI, Depends
 # from .dependencies import get_query_token
 from fastapi import FastAPI
-from .routes import items, users
+from app.routes import items, users, sample_crud
 
 
 # app = FastAPI(dependencies=[Depends(get_query_token)])
 app = FastAPI()
 
 
+app.include_router(sample_crud.router)
 app.include_router(users.router)
 app.include_router(items.router)
+
 
 
 @app.get("/healthz")

@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-
+from app.repositories.repository import MySqlRepository
 router = APIRouter()
 
 @router.get("/users/", tags=["users"])
