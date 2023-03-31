@@ -22,13 +22,10 @@ To get started with this project, follow these steps:
 poetry install
 ```
 
-- Choose the Dockerfile appropriate for your needs and build the Docker image.
-- Run the Docker container using docker-compose.
+- run the development server using:
 
 ```
-sudo docker-compose -f local.yaml build
-
-sudo docker-compose -f local.yaml up
+./run-dev.sh 
 ```
 
 This will start the container and forward port 8000 on your local machine to port 8000 inside the container. You can access the app at http://localhost:8000/.
@@ -38,6 +35,7 @@ This project includes unit tests to ensure that the code is working correctly. T
 
 ```
 pytest
+docker exec -it fastapi-template-main-app-1 pytest
 ```
 
 ## Linting
