@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=mysql+pymysql://root:pass123@db:3306/my_project
+
+
+
+  db:
+    image: "mysql:8.0"
+    environment:
+      MYSQL_DATABASE: "my_project"
+      MYSQL_ROOT_PASSWORD: "pass123"
+    ports:
+        - "3306:3306"
+        - "33060:33060"
+
+
+volumes:
+    fastapi-template-main_db_data:
+        driver: local
+

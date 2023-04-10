@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: myproject
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: myproject
+    template:
+        metadata:
+            labels:
+                app: myproject
+        spec:
+            containers:
+                - name: myproject
+                  image: my-docker-registry/myproject:latest
+                  env:
+                      - name: DATABASE_URL
+                        value: mysql+pymysql://user:password@my-mysql-db/db
+                  ports:
+                      - containerPort: 8000
+            imagePullSecrets:
+                - name: my-docker-registry-secret

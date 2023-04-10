@@ -1,0 +1,28 @@
+# top-most EditorConfig file
+root = true
+
+# Python files
+[*.py]
+
+# Use tabs for indentation
+indent_style = tab
+
+# Indentation width of 4
+tab_width = 4
+
+# Maximum line length of 79 characters
+max_line_length = 79
+
+# Remove trailing whitespace
+trim_trailing_whitespace = true
+
+# Ensure a newline at the end of the file
+insert_final_newline = true
+
+# Blank line before first method and after last method
+[*.py]
+blank_lines_before_class_body = 1
+blank_lines_after_class_header = 1
+blank_lines_after_imports = 1
+blank_lines_before_first_method = 1
+blank_lines_after_function_decorator = 1
